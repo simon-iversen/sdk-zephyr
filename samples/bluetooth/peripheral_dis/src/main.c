@@ -78,6 +78,17 @@ static int settings_runtime_load(void)
 	return 0;
 }
 
+static void bt_receive_cb(struct bt_conn *conn, const u8_t *const data,
+			  u16_t len)
+{
+	//Handle received data
+	printk("Received data\n");
+}
+
+static void notif_enabled(){
+	printk("Notifications enabled\n");
+}
+
 void main(void)
 {
 	int err;
@@ -93,6 +104,7 @@ void main(void)
 	}
 
 	settings_runtime_load();
+	err = my_service_init(&bt_receive_cb, &notif_enabled); 
 
 	printk("Bluetooth initialized\n");
 
@@ -103,6 +115,7 @@ void main(void)
 		printk("Advertising failed to start (err %d)\n", err);
 		return;
 	}
+	//Use my_service_send() to send data using the 
 
 	printk("Advertising successfully started\n");
 }

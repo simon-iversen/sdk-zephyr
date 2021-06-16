@@ -6,7 +6,8 @@ project(peripheral_dis)
 
 FILE(GLOB app_sources src/*.c)
 target_sources(app PRIVATE
-  ${app_sources}
+  ${app_sources} services/my_service.c
   )
+
 
 zephyr_library_include_directories(${ZEPHYR_BASE}/samples/bluetooth)
