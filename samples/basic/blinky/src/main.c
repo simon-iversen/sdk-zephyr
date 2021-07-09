@@ -13,16 +13,16 @@
 #define SLEEP_TIME_MS   1000
 
 /* The devicetree node identifier for the "led0" alias. */
-#define LED0_NODE DT_ALIAS(led0)
+#define SIMSEL_NODE DT_ALIAS(simsel)
 
-#if DT_NODE_HAS_STATUS(LED0_NODE, okay)
-#define LED0	DT_GPIO_LABEL(LED0_NODE, gpios)
-#define PIN	DT_GPIO_PIN(LED0_NODE, gpios)
-#define FLAGS	DT_GPIO_FLAGS(LED0_NODE, gpios)
+#if DT_NODE_HAS_STATUS(SIMSEL_NODE, okay)
+#define SIMSEL	DT_GPIO_LABEL(SIMSEL_NODE, gpios)
+#define PIN	DT_GPIO_PIN(SIMSEL_NODE, gpios)
+#define FLAGS	DT_GPIO_FLAGS(SIMSEL_NODE, gpios)
 #else
 /* A build error here means your board isn't set up to blink an LED. */
-#error "Unsupported board: led0 devicetree alias is not defined"
-#define LED0	""
+#error "Unsupported board: SIMSEL devicetree alias is not defined"
+#define SIMSEL	""
 #define PIN	0
 #define FLAGS	0
 #endif
@@ -30,10 +30,10 @@
 void main(void)
 {
 	const struct device *dev;
-	bool led_is_on = true;
+	//bool led_is_on = true;
 	int ret;
 
-	dev = device_get_binding(LED0);
+	dev = device_get_binding(SIMSEL);
 	if (dev == NULL) {
 		return;
 	}
@@ -43,9 +43,9 @@ void main(void)
 		return;
 	}
 
-	while (1) {
+	/*while (1) {
 		gpio_pin_set(dev, PIN, (int)led_is_on);
 		led_is_on = !led_is_on;
 		k_msleep(SLEEP_TIME_MS);
-	}
+	}*/
 }
