@@ -1,0 +1,14 @@
+# TINDEQ NRF52832 board configuration
+
+# Copyright (c) 2016 Nordic Semiconductor ASA
+# SPDX-License-Identifier: Apache-2.0
+
+if BOARD_TINDEQ_NRF52832
+
+config BOARD
+	default "tindeq_nrf52832"
+
+config BT_CTLR
+	default BT
+
+endif # BOARD_TINDEQ_NRF52832
