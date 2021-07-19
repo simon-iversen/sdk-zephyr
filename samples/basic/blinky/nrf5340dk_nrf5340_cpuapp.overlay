@@ -1,0 +1,15 @@
+/ {
+	leds {
+		led3: led_3 {
+			gpios = <&gpio0 26 GPIO_ACTIVE_LOW>;
+			label = "Green LED 3";
+		};
+		led4: led_4 {
+			gpios = <&gpio0 31 GPIO_ACTIVE_LOW>;
+			label = "LED 4";
+		};
+	};
+	aliases {
+		led4 = &led4;
+	};
+};
