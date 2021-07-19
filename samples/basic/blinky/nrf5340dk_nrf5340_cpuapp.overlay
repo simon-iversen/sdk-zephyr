@@ -1,11 +1,11 @@
 / {
 	leds {
 		led3: led_3 {
-			gpios = <&gpio0 26 GPIO_ACTIVE_LOW>;
+			gpios = <&gpio0 26 GPIO_ACTIVE_LOW>; /* LED3 was using gpio0 31, change to 26 so it can be used by led4 */
 			label = "Green LED 3";
 		};
 		led4: led_4 {
-			gpios = <&gpio0 31 GPIO_ACTIVE_LOW>;
+			gpios = <&gpio0 31 GPIO_ACTIVE_LOW>; 
 			label = "LED 4";
 		};
 	};
