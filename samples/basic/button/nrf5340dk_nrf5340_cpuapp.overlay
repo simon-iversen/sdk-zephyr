@@ -1,0 +1,24 @@
+
+/*&gpio27 {
+	compatible = "gpio-keys, nordic";
+    status = "okay";
+	GPIO_DETECT: gpio_detect{
+		gpio-pin = < 27 >;
+		int-gpios = <&gpio0 0x27 (GPIO_PULL_UP|GPIO_ACTIVE_LOW)>;
+	};
+    clock-frequency = <100000>; 
+};*/
+
+/ {
+	buttons {
+		compatible = "gpio-keys";
+		button27: button_27 {
+			gpios = <&gpio0 27 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+			label = "GPIO P0.27";
+		};
+	};
+
+	aliases {
+		sw27 = &button27;
+	};
+};
